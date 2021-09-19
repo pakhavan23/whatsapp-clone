@@ -5,20 +5,20 @@ import { useConversations } from '../contexts/ConversationsProvider';
 
 export default function NewConversationModal({ closeModal }) {
 
-    const [selectedContactIds , useSelectedContactIds] = useState([])
+    const [selectedContactIds , setSelectedContactIds] = useState([])
     const { contacts } = useContacts();
     const { createConversation } = useConversations();
 
     const handleCheckboxChange = (id) => {
-        useSelectedContactIds(prevId => {
+        setSelectedContactIds(prevId => {
             if(prevId.includes(id)){
                 return prevId.filter(prevId => {
                     return id !== prevId
                 })
             } else {
                 return [...prevId , id]
-            }
-        })
+            } 
+        })  
     }
 
     const handleSubmit = (event) => {
@@ -30,13 +30,13 @@ export default function NewConversationModal({ closeModal }) {
     return (
         <>
             <Modal.Header closeButton>Create a New Conversations</Modal.Header>
-            <Modal.Body>
+            <Modal.Body>  
                 <Form onSubmit={handleSubmit}>
-                    {contacts.map(contats => (
+                    {contacts.map(contact => (
                         <Form.Group controlId={contacts.id} key={contacts.id}>
                             <Form.Check 
                                 type="checkbox"
-                                value={selectedContactIds.include(contact.id)}
+                                value={selectedContactIds.includes(contact.id)}
                                 label={contact.name}
                                 onChange={() => handleCheckboxChange(contact.id)}
                             />
