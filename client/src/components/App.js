@@ -5,6 +5,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import { ContactsProvider } from '../contexts/ContactsProvider';
 import { ConversationsProvider } from '../contexts/ConversationsProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/main.css';
 import { SocketProvider } from '../contexts/SocketProvider';
 
 const App = () => {

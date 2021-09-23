@@ -1,5 +1,6 @@
 import React , {useRef} from 'react';
 import {v4 as uuidV4} from 'uuid';
+import '../styles/login.css';
 
 const Login = ({onIdSubmit}) => {
 
@@ -16,7 +17,7 @@ const Login = ({onIdSubmit}) => {
 
     return (
         <section className="login-form">
-            <h3>Welcome to What's app Clone!</h3>
+            <h1>Welcome to What's app Clone!</h1>
             <form onSubmit={handleSubmit}>
                 <label>Enter Your ID:</label>
                 <input type="text" ref={idRef} required />

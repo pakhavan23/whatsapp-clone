@@ -1,0 +1,13 @@
+.modal-content{
+    background-color: #363636;
+}
+.modal-header , .modal-body{
+    color: white;
+}
+.modal-body button{
+    background-color: #FF0000;
+    margin-top: 20px;
+}
+.modal-body button:hover{
+    background-color: #ff9100;
+}

@@ -2,6 +2,7 @@ import React , { useState } from 'react';
 import { Modal, Form, Button} from 'react-bootstrap';
 import { useContacts  } from '../contexts/ContactsProvider';
 import { useConversations } from '../contexts/ConversationsProvider';
+import '../styles/modals.css';
 
 export default function NewConversationModal({ closeModal }) {
 
@@ -29,7 +30,7 @@ export default function NewConversationModal({ closeModal }) {
 
     return (
         <>
-            <Modal.Header closeButton>Create a New Conversations</Modal.Header>
+            <Modal.Header closeButton>Create a New Conversation</Modal.Header>
             <Modal.Body>  
                 <Form onSubmit={handleSubmit}>
                     {contacts.map(contact => (

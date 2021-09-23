@@ -1,4 +1,10 @@
- const io = require('socket.io')(5000);
+const server = require('http').createServer();
+const options = {
+   cors:true,
+   origins:["*"],
+};
+const io = require('socket.io')(server, options);
+server.listen(5000);
 
  io.on('connection' , socket => {
     const id = socket.handshake.query.id;

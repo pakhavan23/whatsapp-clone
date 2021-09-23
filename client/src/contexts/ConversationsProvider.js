@@ -26,7 +26,7 @@ export function ConversationsProvider({ id , children }) {
         setConversations(prevConversations => {
             let madeChange = false;
             const newMessage = { sender , text};
-            const newConversations = prevConversations.map(conversation => {
+            const newConversations = prevConversations.forEach(conversation => {
                 if(arrayEquality(conversation.recepients , recepients)){
                     madeChange = true;
                     return {...conversation , messages: [...conversation.messages , newMessage]}
@@ -43,7 +43,7 @@ export function ConversationsProvider({ id , children }) {
     } , [setConversations]);
 
     useEffect(() => {
-        if(socket === null) return
+        if(socket === undefined) return
 
         socket.on('receive-message' , addMessageToConversation)
 

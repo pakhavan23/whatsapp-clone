@@ -1,6 +1,7 @@
 import React, { useState , useCallback } from 'react';
 import { Form, InputGroup , Button} from 'react-bootstrap';
 import { useConversations } from '../contexts/ConversationsProvider';
+import '../styles/conversation.css';
 
 const OpenConversation = () => {
 
@@ -19,8 +20,8 @@ const OpenConversation = () => {
     }
 
     return(
-        <div className="d-flex flex-column flex-grow-1">
-            <div className="flex-grow-1 overflow-auto">
+        <div className="d-flex flex-column flex-grow-1 open-c">
+            <div className="flex-grow-1 overflow-auto chat-b">
                 <div className="d-flex flex-column align-items-start justify-content-end px-3">
                     {selectedConversation.messages.map((message , index) => {
                         const lastMessage = selectedConversation.messages.length -1 === index
@@ -37,15 +38,15 @@ const OpenConversation = () => {
                     })}
                 </div>
             </div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="i-group">
                 <Form.Group className="m-2">
                     <InputGroup>
                         <Form.Control 
                           as="textarea" 
+                          className="c-input"
                           required 
                           value={text}
                           onChange={e => setText(e.target.value)}
-                          style={{height: '75px', resize: 'none'}}
                         />
                         <InputGroup.Append>
                             <Button type="submit">Send</Button>
